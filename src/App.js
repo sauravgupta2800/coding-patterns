@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Welcome to Coding Patterns</p>
-        <p>Launching Soon</p>
+        <p>Launching Soon...</p>
       </header>
     </div>
   );
