@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { func, string } from "prop-types";
 import styled from "styled-components";
 import Collapsible from "react-collapsible";
 import ProgressBar from "@ramonak/react-progress-bar";
+import CollapsibleTable from "./CollapsibleTable";
 
 const OuterProgress = styled.div`
   color: ${({ theme }) => theme.fontColor};
@@ -39,6 +40,14 @@ const CollapseHeader = () => {
 };
 
 const PatternsCollapsible = ({ theme }) => {
+  const [solvedList, setSolvedList] = useState([]);
+  const handleSolved = ({ remove, id }) => {
+    let newSolvedList = [...solvedList];
+    if (remove)
+      newSolvedList = newSolvedList.filter((solvedId) => solvedId !== id);
+    else newSolvedList.push(id);
+    setSolvedList(newSolvedList);
+  };
   return (
     <div className="">
       <OuterProgress>
@@ -46,7 +55,7 @@ const PatternsCollapsible = ({ theme }) => {
           <div className="fs-6 fw-bold">(2/130)</div>
           <div className="flex-fill ms-2">
             <ProgressBar
-              completed={60}
+              completed={solvedList.length * 19}
               bgColor="#03b674"
               baseBgColor="#fbfbfb"
             />
@@ -56,10 +65,10 @@ const PatternsCollapsible = ({ theme }) => {
       <div className="py-4">
         {[...new Array(20)].map(() => (
           <Collapsible className="mb-1" trigger={<CollapseHeader />}>
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
+            <CollapsibleTable
+              solvedList={solvedList}
+              handleSolved={handleSolved}
+            />
           </Collapsible>
         ))}
       </div>

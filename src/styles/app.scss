@@ -28,3 +28,70 @@
     }
   }
 }
+
+.Collapsible__contentOuter {
+  margin-bottom: 10px;
+}
+.rc-table {
+  border: 1px solid;
+  background: rgb(239, 249, 249);
+  color: black;
+  border-top: 0;
+  &-thead {
+    border-bottom: 1px solid lightgray;
+    background: lightgray;
+  }
+  &-tbody {
+    .rc-table-row:not(:last-child) {
+      border-bottom: 1px solid lightgray;
+    }
+    .solved {
+      background: #e5f3e7;
+    }
+  }
+  .rc-table-cell:not(:last-child) {
+    border-right: 1px solid lightgray;
+  }
+  .rc-table-cell {
+    padding: 10px;
+  }
+}
+
+.rc-checkbox-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.question-link {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(119, 119, 240);
+  &:hover {
+    color: rgb(37, 37, 158);
+  }
+}
+
+.difficulty {
+  text-transform: capitalize;
+  width: fit-content;
+  text-align: center;
+  border-radius: 30px;
+  width: 88px;
+  &--easy {
+    color: rgb(62, 169, 62);
+    background: rgb(213, 244, 213);
+  }
+  &--medium {
+    color: rgb(171, 164, 54);
+    background: rgb(243, 243, 204);
+  }
+  &--hard {
+    color: rgb(188, 70, 70);
+    background: rgb(249, 230, 230);
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
