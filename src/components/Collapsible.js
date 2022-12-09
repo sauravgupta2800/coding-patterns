@@ -23,7 +23,7 @@ const CollapseHeaderDiv = styled.div`
 const CollapseHeader = () => {
   return (
     <CollapseHeaderDiv className="d-flex">
-      <div className="w-50">2 Pointers</div>
+      <div className="w-50 fw-bold">2 Pointers</div>
       <div className="w-50 d-flex align-items-center">
         <div className="fs-6 fw-bold">(2/130)</div>
         <div className="flex-fill ms-2">

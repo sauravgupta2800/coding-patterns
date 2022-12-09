@@ -10,7 +10,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 0 auto;
-  grid-template-rows: 5rem auto;
+  grid-template-rows: 4rem auto;
 
   &__header {
     grid-column: 1 / span 2;
@@ -21,10 +21,13 @@
     grid-row: 2 / span 1;
     overflow-x: hidden;
     overflow-y: auto;
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 4rem);
 
     .content-width {
       width: 70%;
+      &--mobile {
+        width: 90%;
+      }
     }
   }
 }

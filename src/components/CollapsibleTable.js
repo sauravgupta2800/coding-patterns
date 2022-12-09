@@ -124,6 +124,7 @@ const CollapsibleTable = ({ solvedList, handleSolved }) => {
       tableLayout="fixed"
       columns={columns}
       data={data}
+      scroll={{ x: true }}
       rowClassName={({ link }) => (solvedList.includes(link) ? "solved" : "")}
     />
   );

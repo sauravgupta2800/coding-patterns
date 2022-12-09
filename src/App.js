@@ -8,6 +8,9 @@ import { useDarkMode } from "./hooks/useDarkMode";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Collapsible from "./components/Collapsible";
+import Footer from "./components/Footer";
+import { isMobileView } from "./components/utils";
+
 function App() {
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
@@ -22,11 +25,15 @@ function App() {
               <Header theme={theme} themeToggler={themeToggler} />
             </div>
 
-            <div className="main-layout__container d-flex justify-content-center">
-              <div className="content-width">
+            <div
+              className={`main-layout__container d-flex justify-content-center`}
+            >
+              <div
+                className={`content-width${isMobileView ? "--mobile" : ""} `}
+              >
                 <Banner />
-
                 <Collapsible />
+                <Footer />
               </div>
             </div>
           </div>
