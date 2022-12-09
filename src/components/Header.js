@@ -24,7 +24,11 @@ const Header = ({ theme, themeToggler }) => {
   return (
     <Section className="px-4 h-100 d-flex justify-content-between align-items-center">
       <div className="d-flex align-items-center">
-        <img src={logo} width={isMobileView ? "50" : "60"} />
+        <img
+          className="logo-img"
+          src={logo}
+          width={isMobileView ? "50" : "60"}
+        />
         {isMobileView ? (
           <MobileTitle className="m-0 ms-3">Coding Patterns</MobileTitle>
         ) : (

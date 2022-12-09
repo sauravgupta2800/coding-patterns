@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../src/styles/app.scss";
+import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/Themes";
@@ -21,6 +22,15 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
+        <Helmet>
+          <title>
+            Coding Patterns: 20 Coding Patterns to Master Tech Interviews
+          </title>
+          <meta
+            name="description"
+            content="Dont just write code, lets learn patters"
+          />
+        </Helmet>
         <div className="app">
           <div className="main-layout">
             <div className="main-layout__header">

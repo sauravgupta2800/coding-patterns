@@ -98,3 +98,10 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.logo-img {
+  transition: transform 0.7s ease-in-out;
+}
+.logo-img:hover {
+  transform: rotate(360deg);
+}
