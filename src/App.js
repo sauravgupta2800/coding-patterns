@@ -12,8 +12,10 @@ import Footer from "./components/Footer";
 import { isMobileView } from "./components/utils";
 
 function App() {
-  const [theme, themeToggler] = useDarkMode();
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  if (!mountedComponent) return <div />;
 
   return (
     <ThemeProvider theme={themeMode}>
