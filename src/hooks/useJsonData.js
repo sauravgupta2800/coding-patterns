@@ -30,7 +30,9 @@ export const useJsonData = () => {
       .then((text) => {
         console.log("text: ", text);
         const patternQuestionsMap = {};
-        csvJSON(text).forEach((question) => {
+        const save = csvJSON(text);
+        console.log("save: ", save);
+        save.forEach((question) => {
           const { pattern } = question;
           if (!patternQuestionsMap[pattern]) patternQuestionsMap[pattern] = [];
           patternQuestionsMap[pattern].push(question);
