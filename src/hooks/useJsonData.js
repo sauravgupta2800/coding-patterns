@@ -6,7 +6,6 @@ export const useJsonData = () => {
   const [questions, setQuestions] = useState(false);
 
   useEffect(() => {
-    console.log("useEffecst");
     function csvJSON(csv) {
       const lines = csv.split(/\r?\n/);
       const result = [];
@@ -28,10 +27,8 @@ export const useJsonData = () => {
     fetch(csvfile)
       .then((r) => r.text())
       .then((text) => {
-        console.log("text: ", text);
         const patternQuestionsMap = {};
         const save = csvJSON(text);
-        console.log("save: ", save);
         save.forEach((question) => {
           const { pattern } = question;
           if (!patternQuestionsMap[pattern]) patternQuestionsMap[pattern] = [];
@@ -45,7 +42,6 @@ export const useJsonData = () => {
           };
         });
 
-        console.log("finalList: ", finalList);
         setConverted(true);
         setQuestions(finalList);
       });
