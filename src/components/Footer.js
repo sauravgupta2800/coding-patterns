@@ -9,7 +9,7 @@ const Section = styled.div`
 
 const Footer = ({ theme }) => {
   return (
-    <div className="d-flex align-items-center justify-content-center text-center pb-4">
+    <div className="d-flex align-items-center justify-content-center text-center py-4">
       Copyright © 2022 CodingPatterns.com | All rights reserved
     </div>
   );

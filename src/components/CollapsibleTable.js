@@ -4,7 +4,6 @@ import Checkbox from "rc-checkbox";
 import youtube from "./../images/youtube-logo.png";
 import js from "./../images/js.png";
 import python from "./../images/python.png";
-
 const data = [
   {
     title: "Contains Duplicate",
@@ -29,7 +28,7 @@ const data = [
   },
 ];
 
-const CollapsibleTable = ({ solvedList, handleSolved }) => {
+const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
   const columns = [
     {
       title: "Solved",
@@ -123,7 +122,12 @@ const CollapsibleTable = ({ solvedList, handleSolved }) => {
     <Table
       tableLayout="fixed"
       columns={columns}
-      data={data}
+      data={list.map((row, index) => {
+        return {
+          ...row,
+          key: index,
+        };
+      })}
       scroll={{ x: true }}
       rowClassName={({ link }) => (solvedList.includes(link) ? "solved" : "")}
     />
