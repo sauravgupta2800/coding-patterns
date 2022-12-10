@@ -8,7 +8,7 @@ export const useJsonData = () => {
   useEffect(() => {
     console.log("useEffecst");
     function csvJSON(csv) {
-      const lines = csv.split("\r\n");
+      const lines = csv.split(/\r?\n/);
       const result = [];
       const headers = lines[0].split(",");
 
