@@ -77,7 +77,9 @@ const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
               <img src={youtube} height="32" />
             </a>
           ) : (
-            "Coming Soon"
+            <div style={{ whiteSpace: "nowrap", color: "gray" }}>
+              Coming Soon
+            </div>
           )}
         </div>
       ),
@@ -89,9 +91,13 @@ const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
       align: "center",
       width: "20%",
       render: (value, row) => (
-        <div className="d-flex align-items-center justify-content-center px-4">
-          <img src={js} height="30" className="cursor-pointer" />
-          <img src={python} height="30" className="cursor-pointer ms-4" />
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{ whiteSpace: "nowrap", color: "gray" }}
+        >
+          Coming Soon
+          {/* <img src={js} height="30" className="cursor-pointer" />
+          <img src={python} height="30" className="cursor-pointer ms-4" /> */}
         </div>
       ),
     },
