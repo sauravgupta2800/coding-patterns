@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../src/styles/app.scss";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
@@ -34,7 +34,7 @@ function App() {
         <div className="app">
           <div className="main-layout">
             <div className="main-layout__header">
-              <Header theme={theme} themeToggler={themeToggler} />
+              <Header theme={theme} themeToggler={() => themeToggler()} />
             </div>
 
             <div

@@ -16,7 +16,7 @@ export const saveToLS = (key, value) => {
       const ls =
         JSON.parse(global.localStorage.getItem("coding-patterns")) || {};
       global.localStorage.setItem(
-        "coding-patterns-store",
+        "coding-patterns",
         JSON.stringify({
           ...ls,
           [key]: value,

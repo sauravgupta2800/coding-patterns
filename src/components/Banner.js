@@ -1,20 +1,14 @@
 import React from "react";
-import { func, string } from "prop-types";
 import styled from "styled-components";
 import algo from "./../images/algo.jpg";
 import { isMobileView } from "../components/utils";
-
-const Section = styled.div`
-  background: ${({ theme }) => theme.secondaryBackground};
-  font-size:0.8rem;
-}`;
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.fontColor};
   font-weight: 700;
 `;
 
-const Banner = ({ theme, themeToggler }) => {
+const Banner = () => {
   return (
     <div
       className={`d-flex ${
@@ -45,5 +39,4 @@ const Banner = ({ theme, themeToggler }) => {
     </div>
   );
 };
-
 export default Banner;

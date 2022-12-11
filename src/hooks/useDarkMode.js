@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { saveToLS, getFromLS } from "../components/utils";
+
 export const useDarkMode = () => {
   const [theme, setTheme] = useState("light");
   const [mountedComponent, setMountedComponent] = useState(false);
 
   const setMode = (mode) => {
-    window.localStorage.setItem("theme", mode);
+    saveToLS("theme", mode);
     setTheme(mode);
   };
 
@@ -13,7 +15,7 @@ export const useDarkMode = () => {
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
+    const localTheme = getFromLS("theme");
     localTheme && setTheme(localTheme);
     setMountedComponent(true);
   }, []);

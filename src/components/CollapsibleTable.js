@@ -1,32 +1,10 @@
 import React from "react";
+import { func, string, array } from "prop-types";
 import Table from "rc-table";
 import Checkbox from "rc-checkbox";
 import youtube from "./../images/youtube-logo.png";
 import js from "./../images/js.png";
 import python from "./../images/python.png";
-const data = [
-  {
-    title: "Contains Duplicate",
-    difficulty: "easy",
-    link: "https://leetcode.com/problems/contains-duplicate/",
-    video: "www.youtube.com",
-    code: "www.github.com",
-  },
-  {
-    title: "Group Anagrams",
-    difficulty: "medium",
-    link: "https://leetcode.com/problems/group-anagrams/",
-    video: "",
-    code: "www.github.com",
-  },
-  {
-    title: "Binary Tree Maximum Path Sum",
-    difficulty: "hard",
-    link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
-    video: "www.youtube.com",
-    code: "www.github.com",
-  },
-];
 
 const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
   const columns = [
@@ -134,4 +112,9 @@ const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
   );
 };
 
+CollapsibleTable.propTypes = {
+  list: array.isRequired,
+  solvedList: array.isRequired,
+  handleSolved: func.isRequired,
+};
 export default CollapsibleTable;
