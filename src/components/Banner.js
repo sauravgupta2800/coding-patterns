@@ -23,7 +23,7 @@ const Banner = () => {
         } d-flex align-items-center flex-column justify-content-center`}
       >
         <div className="align-middle">
-          20 Coding Patterns to Master Tech Interviews 🔥
+          21 Coding Patterns to Master Tech Interviews 🔥
         </div>
         <div className={`${isMobileView ? "my-2" : "mt-5"}`}>
           Coding patterns improve our:

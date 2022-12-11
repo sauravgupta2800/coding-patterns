@@ -83,7 +83,7 @@ const PatternsCollapsible = ({ theme }) => {
                 />
               </div>
               <div className="ms-2 fs-6 fw-bold">
-                {Math.floor((solvedList.length * 100) / total)}%
+                {Math.ceil((solvedList.length * 100) / total)}%
               </div>
             </div>
           </OuterProgress>
