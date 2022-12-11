@@ -6,10 +6,12 @@
 
 # Coding Patterns
 
-20 Coding Patterns to Master Tech Interviews 🔥
+21 Coding Patterns to Master Tech Interviews 🔥
 
 Coding patterns improve our:
 "ability to connect a new problem to an existing one"
+
+125 problems specifically chosen to help you master technical interviews are comprised of 21 coding patterns.
 
 ## Available Scripts
 

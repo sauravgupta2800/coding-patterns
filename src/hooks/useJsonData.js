@@ -9,12 +9,14 @@ export const useJsonData = () => {
     function csvJSON(csv) {
       const lines = csv.split(/\r?\n/);
       const result = [];
-      const headers = lines[0].split(",");
+      const headers = lines[0]
+        .split(",")
+        .map((name) => name.toLowerCase().trim());
 
       for (let i = 1; i < lines.length; i++) {
         if (!lines[i]) continue;
         const obj = {};
-        const currentline = lines[i].split(",");
+        const currentline = lines[i].split(",").map((name) => name.trim());
 
         for (let j = 0; j < headers.length; j++) {
           obj[headers[j]] = currentline[j];

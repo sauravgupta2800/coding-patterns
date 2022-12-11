@@ -24,7 +24,7 @@ function App() {
         <GlobalStyles />
         <Helmet>
           <title>
-            Coding Patterns: 20 Coding Patterns to Master Tech Interviews
+            Coding Patterns: 21 Coding Patterns to Master Tech Interviews
           </title>
           <meta
             name="description"
