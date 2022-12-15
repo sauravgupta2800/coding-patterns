@@ -62,6 +62,16 @@ const PatternsCollapsible = ({ theme }) => {
   };
 
   useEffect(() => {
+    async function fetchGithubData() {
+      fetch("https://api.github.com/orgs/nodejs")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); // Prints result from `response.json()` in getRequest
+        })
+        .catch((error) => console.error(error));
+    }
+
+    fetchGithubData();
     const localSolvedList = getFromLS("solved");
     localSolvedList && localSolvedList.length && setSolvedList(localSolvedList);
   }, []);
