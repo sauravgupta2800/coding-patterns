@@ -4,6 +4,7 @@ import Collapsible from "react-collapsible";
 import ProgressBar from "@ramonak/react-progress-bar";
 import CollapsibleTable from "./CollapsibleTable";
 import { useJsonData } from "../hooks/useJsonData";
+import VideoCodeDrawer from "./VideoCodeDrawer";
 import { saveToLS, getFromLS } from "./utils";
 
 const OuterProgress = styled.div`
@@ -45,7 +46,18 @@ const CollapseHeader = ({ title = "", selected = 0, total = 0 }) => {
 
 const PatternsCollapsible = ({ theme }) => {
   const [solvedList, setSolvedList] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [questions, converted] = useJsonData();
+  const [drawerData, setDrawerData] = useState({});
+
+  const openDrawer = (data) => {
+    setIsOpen(true);
+    setDrawerData(data);
+  };
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const localSolvedList = getFromLS("solved");
@@ -109,12 +121,18 @@ const PatternsCollapsible = ({ theme }) => {
                   solvedList={solvedList}
                   list={list}
                   handleSolved={handleSolved}
+                  openDrawer={openDrawer}
                 />
               </Collapsible>
             ))}
           </div>
         </>
       )}
+      <VideoCodeDrawer
+        isOpen={isOpen}
+        data={drawerData}
+        onClose={closeDrawer}
+      />
     </div>
   );
 };
