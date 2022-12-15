@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../src/styles/app.scss";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
@@ -14,12 +14,12 @@ import { isMobileView } from "./components/utils";
 
 function App() {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
-  const themeMode = theme === "light" ? lightTheme : darkTheme;
+  const themeMode = () => (theme === "light" ? lightTheme : darkTheme);
 
   if (!mountedComponent) return <div />;
 
   return (
-    <ThemeProvider theme={themeMode}>
+    <ThemeProvider theme={themeMode()}>
       <>
         <GlobalStyles />
         <Helmet>

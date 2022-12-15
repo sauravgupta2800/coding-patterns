@@ -105,3 +105,19 @@
 .logo-img:hover {
   transform: rotate(360deg);
 }
+
+.drawer-content {
+  height: calc(100vh - 134px);
+  overflow-y: scroll;
+}
+
+.codeblock {
+  .hljs {
+    font-size: 16px !important;
+  }
+
+  code {
+    border-radius: 7px;
+    border: 1px solid;
+  }
+}
