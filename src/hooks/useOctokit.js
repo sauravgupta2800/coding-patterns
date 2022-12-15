@@ -6,12 +6,11 @@ export const useOctokit = (title) => {
 
   useEffect(() => {
     async function onLoad() {
-      console.log("octokit: ", process.env.REACT_APP_GH);
       await octokit
         .request("GET /repos/{owner}/{repo}/contents/{path}", {
           owner: "sauravgupta2800",
           repo: "coding-patterns",
-          path: `solutions/js/${title}`,
+          path: `solutions/js/${title}.js`,
         })
         .then((res) => {
           const encoded = res.data.content;
