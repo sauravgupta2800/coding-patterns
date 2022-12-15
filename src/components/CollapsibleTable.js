@@ -6,7 +6,7 @@ import youtube from "./../images/youtube-logo.png";
 import js from "./../images/js.png";
 import python from "./../images/python.png";
 
-const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
+const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
   const columns = [
     {
       title: "Solved",
@@ -68,14 +68,12 @@ const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
       render: (value, row) => (
         <div className="d-flex align-items-center justify-content-center">
           {row.video ? (
-            <a
-              href={row.video}
-              target="_blank"
-              rel="noopener"
+            <div
               style={{ cursor: "pointer" }}
+              onClick={() => openDrawer({ data: row, key: "video" })}
             >
               <img src={youtube} height="32" />
-            </a>
+            </div>
           ) : (
             <div style={{ whiteSpace: "nowrap", color: "gray" }}>
               Coming Soon
@@ -95,8 +93,18 @@ const CollapsibleTable = ({ list, solvedList, handleSolved }) => {
           className="d-flex align-items-center justify-content-center"
           style={{ whiteSpace: "nowrap", color: "gray" }}
         >
-          Coming Soon
-          {/* <img src={js} height="30" className="cursor-pointer" />
+          {row.video ? (
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => openDrawer({ data: row, key: "code" })}
+            >
+              <img src={js} height="25" className="cursor-pointer" />
+            </div>
+          ) : (
+            "Coming Soon"
+          )}
+
+          {/* 
           <img src={python} height="30" className="cursor-pointer ms-4" /> */}
         </div>
       ),
