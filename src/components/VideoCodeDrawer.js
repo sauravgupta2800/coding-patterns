@@ -2,17 +2,79 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import youtube from "./../images/youtube-logo.png";
+import js from "./../images/js.png";
 
 const HeaderWrapper = styled.div`
   height: 100vh;
   color: ${({ theme }) => theme.fontColor};
-  padding: 15px;
+  padding: 0;
   background: ${({ theme }) => theme.bgColor};
 `;
 
+const TabsOuterDiv = styled.div`
+  display: flex;
+  padding: 0 15px;
+  justify-content: center;
+  border-bottom: 1px solid;
+`;
+
+const TabsDiv = styled.div`
+  color: ${({ theme }) => theme.fontColor};
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  list-style: none;
+  padding: 6px 12px;
+  position: relative;
+`;
+
+const SelectedTabsDiv = styled(TabsDiv)`
+  background: ${({ theme }) => theme.bgColor};
+  border-color: ${({ theme }) => theme.fontColor};
+  border-radius: 5px 5px 0 0;
+`;
+
+const TextRender = ({ label, src }) => {
+  return (
+    <div className="d-flex align-items-center justify-content-center">
+      <div style={{ width: "30px" }}>
+        <img src={src} height="25" className="me-2" />
+      </div>
+      {label}
+    </div>
+  );
+};
+
+const Tabs = ({ selectedTab = "video", changeTab }) => {
+  const options = [
+    { label: "Video Solution", key: "video", src: youtube },
+    { label: "Code Solution", key: "code", src: js },
+  ];
+
+  return (
+    <TabsOuterDiv>
+      {options.map(({ key, label, src }) =>
+        selectedTab === key ? (
+          <SelectedTabsDiv key={key}>
+            <TextRender label={label} src={src} />
+          </SelectedTabsDiv>
+        ) : (
+          <TabsDiv key={key} onClick={() => changeTab(key)}>
+            <TextRender label={label} src={src} />
+          </TabsDiv>
+        )
+      )}
+    </TabsOuterDiv>
+  );
+};
+
 const Header = ({ data = {}, onClose }) => {
   return (
-    <div className="d-flex justify-content-between align-items-center">
+    <div className="p-4 d-flex justify-content-between align-items-center">
       <div
         className="d-flex justify-content-center align-items-center"
         style={{
@@ -46,6 +108,16 @@ const Header = ({ data = {}, onClose }) => {
         >
           {data.title}
         </a>
+
+        <a
+          className="ms-2 question-link question-link"
+          href={`https://www.youtube.com/watch?v=${data.video}`}
+          target="_blank"
+          rel="noopener"
+        >
+          <img src={youtube} height="30" width="30" />
+        </a>
+
         <div className="ms-4 d-flex align-items-center justify-content-center">
           <div
             style={{
@@ -63,10 +135,10 @@ const Header = ({ data = {}, onClose }) => {
 
 const Video = ({ data = {} }) => {
   return (
-    <div className="w-100 h-100 d-flex align-items-center justify-content-center">
+    <div className="mt-5 w-100 h-90 d-flex align-items-center justify-content-center">
       <iframe
-        width="100%"
-        height="500"
+        width="90%"
+        height="450"
         src={`https://www.youtube.com/embed/${data.video}?controls=0`}
         title="YouTube video player"
         frameborder="0"
@@ -77,7 +149,13 @@ const Video = ({ data = {} }) => {
   );
 };
 
-const VideoCodeDrawer = ({ data = {}, isOpen = false, onClose }) => {
+const VideoCodeDrawer = ({
+  drawerTab,
+  data = {},
+  isOpen = false,
+  onClose,
+  handleTabChange,
+}) => {
   return (
     <Drawer
       open={isOpen}
@@ -90,7 +168,8 @@ const VideoCodeDrawer = ({ data = {}, isOpen = false, onClose }) => {
     >
       <HeaderWrapper>
         <Header data={data} onClose={onClose} />
-        <Video data={data} />
+        <Tabs selectedTab={drawerTab} changeTab={handleTabChange} />
+        {drawerTab === "video" && <Video data={data} />}
       </HeaderWrapper>
     </Drawer>
   );

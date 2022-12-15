@@ -69,11 +69,8 @@ const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
         <div className="d-flex align-items-center justify-content-center">
           {row.video ? (
             <div
-              href={row.video}
-              target="_blank"
-              rel="noopener"
               style={{ cursor: "pointer" }}
-              onClick={() => openDrawer(row)}
+              onClick={() => openDrawer({ data: row, key: "video" })}
             >
               <img src={youtube} height="32" />
             </div>
@@ -96,8 +93,18 @@ const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
           className="d-flex align-items-center justify-content-center"
           style={{ whiteSpace: "nowrap", color: "gray" }}
         >
-          Coming Soon
-          {/* <img src={js} height="30" className="cursor-pointer" />
+          {row.video ? (
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => openDrawer({ data: row, key: "code" })}
+            >
+              <img src={js} height="25" className="cursor-pointer" />
+            </div>
+          ) : (
+            "Coming Soon"
+          )}
+
+          {/* 
           <img src={python} height="30" className="cursor-pointer ms-4" /> */}
         </div>
       ),

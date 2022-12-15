@@ -49,10 +49,12 @@ const PatternsCollapsible = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [questions, converted] = useJsonData();
   const [drawerData, setDrawerData] = useState({});
+  const [drawerTab, setDrawerTab] = useState("video");
 
-  const openDrawer = (data) => {
-    setIsOpen(true);
+  const openDrawer = ({ data, key }) => {
     setDrawerData(data);
+    setDrawerTab(key);
+    setIsOpen(true);
   };
 
   const closeDrawer = () => {
@@ -131,7 +133,9 @@ const PatternsCollapsible = ({ theme }) => {
       <VideoCodeDrawer
         isOpen={isOpen}
         data={drawerData}
+        drawerTab={drawerTab}
         onClose={closeDrawer}
+        handleTabChange={setDrawerTab}
       />
     </div>
   );
