@@ -17,10 +17,18 @@ const Title = styled.h1`
 const MobileTitle = styled.h3`
   color: ${({ theme }) => theme.fontColor};
 `;
+
+const changeURLtoBase = () => {
+  window.open(window.location.origin, "_self");
+};
 const Header = ({ theme, themeToggler }) => {
   return (
     <Section className="px-4 h-100 d-flex justify-content-between align-items-center">
-      <div className="d-flex align-items-center">
+      <div
+        className="d-flex align-items-center"
+        style={{ cursor: "pointer" }}
+        onClick={() => changeURLtoBase()}
+      >
         <img
           className="logo-img"
           src={logo}
