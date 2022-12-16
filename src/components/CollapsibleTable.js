@@ -5,6 +5,7 @@ import Checkbox from "rc-checkbox";
 import youtube from "./../images/youtube-logo.png";
 import js from "./../images/js.png";
 import python from "./../images/python.png";
+import code from "./../images/code.png";
 
 const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
   const columns = [
@@ -98,7 +99,7 @@ const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
               style={{ cursor: "pointer" }}
               onClick={() => openDrawer({ data: row, key: "code" })}
             >
-              <img src={js} height="25" className="cursor-pointer" />
+              <img src={code} height="20" className="cursor-pointer" />
             </div>
           ) : (
             "Coming Soon"

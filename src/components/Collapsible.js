@@ -66,6 +66,32 @@ const PatternsCollapsible = ({ theme }) => {
     localSolvedList && localSolvedList.length && setSolvedList(localSolvedList);
   }, []);
 
+  useEffect(() => {
+    if (questions.length) {
+      // check for url parameter to open video/code
+      // Example: http://localhost:3000/?problem=2-sum&key=video
+      const queryString = window.location.search;
+      if (queryString) {
+        const urlParams = new URLSearchParams(queryString);
+        const problemTitle = urlParams.get("problem");
+        const key = urlParams.get("key");
+
+        const findData = questions
+          .reduce((prev, curr) => {
+            return [...prev, ...curr.list];
+          }, [])
+          .find(({ title }) => {
+            return (
+              title.toLowerCase().replaceAll(" ", "-") ===
+              problemTitle.toLowerCase().replaceAll(" ", "-")
+            );
+          });
+
+        if (findData) openDrawer({ data: findData, key });
+      }
+    }
+  }, [questions]);
+
   const handleSolved = ({ remove, id }) => {
     let newSolvedList = [...solvedList];
     if (remove)
