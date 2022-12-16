@@ -87,12 +87,14 @@ const Header = ({ data = {}, onClose }) => {
         style={{
           background: "#b5f8bd",
           width: isMobileView ? "35px" : "40px",
+          minWidth: isMobileView ? "35px" : "40px",
           height: isMobileView ? "35px" : "40px",
           borderRadius: "5px",
           fontSize: isMobileView ? "14px" : "18px",
           fontWeight: "600",
           color: "green",
           cursor: "pointer",
+          marginRight: "20px",
         }}
         onClick={onClose}
       >
@@ -116,14 +118,16 @@ const Header = ({ data = {}, onClose }) => {
           {data.title}
         </a>
 
-        <a
-          className="ms-2 question-link question-link"
-          href={`https://www.youtube.com/watch?v=${data.video}`}
-          target="_blank"
-          rel="noopener"
-        >
-          <img src={youtube} height="30" width="30" />
-        </a>
+        {!isMobileView && (
+          <a
+            className="ms-2 question-link question-link"
+            href={`https://www.youtube.com/watch?v=${data.video}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <img src={youtube} height="30" width="30" />
+          </a>
+        )}
 
         <div className="ms-4 d-flex align-items-center justify-content-center">
           <div
