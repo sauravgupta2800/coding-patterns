@@ -119,5 +119,20 @@
   code {
     border-radius: 7px;
     border: 1px solid;
+    color: rgb(230, 227, 227);
+    .hljs {
+      &-built_in {
+        color: orange;
+      }
+      &-keyword {
+        color: #0deef6;
+      }
+      &-number {
+        color: #5cff02;
+      }
+      &-comment {
+        color: #7e958d;
+      }
+    }
   }
 }
