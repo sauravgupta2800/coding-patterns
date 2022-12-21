@@ -2,6 +2,12 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+
+/*
+ Complexities
+ Time - O(n) | Space - O(1)
+*/
+
 var sortColors = function (nums) {
   let low = 0,
     mid = 0,
