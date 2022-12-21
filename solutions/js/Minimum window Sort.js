@@ -2,6 +2,12 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+/*
+ Complexities
+ Time - O(n) | Space - O(1)
+*/
+
 var findUnsortedSubarray = function (nums) {
   const N = nums.length;
   let left = 0,
