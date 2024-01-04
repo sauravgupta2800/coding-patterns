@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { saveToLS, getFromLS } from "../components/utils";
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [mountedComponent, setMountedComponent] = useState(false);
 
   const setMode = (mode) => {

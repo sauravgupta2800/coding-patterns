@@ -5,8 +5,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import CollapsibleTable from "./CollapsibleTable";
 import { useJsonData } from "../hooks/useJsonData";
 import VideoCodeDrawer from "./VideoCodeDrawer";
-import { saveToLS, getFromLS } from "./utils";
-
+import { saveToLS, getFromLS, isMobileView } from "./utils";
 const OuterProgress = styled.div`
   color: ${({ theme }) => theme.fontColor};
   padding: 15px;
@@ -26,7 +25,7 @@ const CollapseHeader = ({ title = "", selected = 0, total = 0 }) => {
   const stats = `${selected}/${total}`;
   return (
     <CollapseHeaderDiv className="d-flex">
-      <div className="w-50 fs-5 fw-bold">{title}</div>
+      <div className={`w-50 fs-${isMobileView ? 6 : 5} fw-bold`}>{title}</div>
       <div className="w-50 d-flex align-items-center">
         <div className="fs-6 fw-bold">{stats}</div>
         <div className="flex-fill ms-2">
