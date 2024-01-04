@@ -35,6 +35,10 @@
 .Collapsible__contentOuter {
   margin-bottom: 10px;
 }
+.rc-table-tbody .rc-table-row:not(.solved):hover {
+  background-color: #e9f3ea;
+}
+
 .rc-table {
   border: 1px solid;
   background: rgb(239, 249, 249);
@@ -49,7 +53,7 @@
       border-bottom: 1px solid lightgray;
     }
     .solved {
-      background: #e5f3e7;
+      background: #e0f0e2;
     }
   }
   .rc-table-cell:not(:last-child) {
@@ -80,6 +84,7 @@
   width: fit-content;
   text-align: center;
   border-radius: 30px;
+  border: 1px solid;
   width: 88px;
   &--easy {
     color: rgb(62, 169, 62);
