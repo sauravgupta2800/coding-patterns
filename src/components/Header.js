@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { func, string } from "prop-types";
 import styled from "styled-components";
 import logo from "./../images/logo.png";
 import { DarkModeToggle } from "react-dark-mode-toggle-2";
 import { isMobileView } from "../components/utils";
+import { octokit } from "../utils/octokit";
 
 const Section = styled.div`
   background: ${({ theme }) => theme.secondaryBackground};

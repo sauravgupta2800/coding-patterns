@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import "../src/styles/app.scss";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
@@ -50,6 +51,7 @@ function App() {
             </div>
           </div>
         </div>
+        <SpeedInsights />
       </>
     </ThemeProvider>
   );
