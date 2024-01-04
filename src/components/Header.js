@@ -23,29 +23,6 @@ const changeURLtoBase = () => {
   window.open(window.location.origin, "_self");
 };
 const Header = ({ theme, themeToggler }) => {
-  useEffect(() => {
-    async function onLoad() {
-      await octokit
-        .request("GET /repos/{owner}/{repo}/issues", {
-          owner: "facebook",
-          repo: "react",
-          //owner: "sauravgupta2800",
-          // repo: "coding-patterns",
-
-          // path: `solutions/js/${title}.js`,
-        })
-        .then((res) => {
-          const encoded = res.data;
-          const decoded = encoded;
-          console.log(decoded);
-        })
-        .catch((err) => {
-          console.log("Error: ", err);
-        });
-    }
-    onLoad();
-  }, []);
-
   return (
     <Section className="px-4 h-100 d-flex justify-content-between align-items-center">
       <div
