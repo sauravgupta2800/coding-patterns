@@ -3,7 +3,8 @@ export const lightTheme = {
   secondaryColor: "#536390",
   fontColor: "#424242",
   bgColor: "#fff",
-  secondaryBackground: "#b5f8bd",
+  secondaryBackground: "#81de8c",
+
   mainSecondaryBackground: "#f3fbf4",
   headingColor: "#292922",
 };
