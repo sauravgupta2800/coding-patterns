@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { func, string } from "prop-types";
 import styled from "styled-components";
 import logo from "./../images/logo.png";
 import { DarkModeToggle } from "react-dark-mode-toggle-2";
 import { isMobileView } from "../components/utils";
+import { octokit } from "../utils/octokit";
 
 const Section = styled.div`
   background: ${({ theme }) => theme.secondaryBackground};
@@ -22,6 +23,29 @@ const changeURLtoBase = () => {
   window.open(window.location.origin, "_self");
 };
 const Header = ({ theme, themeToggler }) => {
+  useEffect(() => {
+    async function onLoad() {
+      await octokit
+        .request("GET /repos/{owner}/{repo}/issues", {
+          owner: "facebook",
+          repo: "react",
+          //owner: "sauravgupta2800",
+          // repo: "coding-patterns",
+
+          // path: `solutions/js/${title}.js`,
+        })
+        .then((res) => {
+          const encoded = res.data;
+          const decoded = encoded;
+          console.log(decoded);
+        })
+        .catch((err) => {
+          console.log("Error: ", err);
+        });
+    }
+    onLoad();
+  }, []);
+
   return (
     <Section className="px-4 h-100 d-flex justify-content-between align-items-center">
       <div
