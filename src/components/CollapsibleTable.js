@@ -1,13 +1,20 @@
 import React from "react";
-import { func, string, array } from "prop-types";
+import { func, array } from "prop-types";
 import Table from "rc-table";
 import Checkbox from "rc-checkbox";
 import youtube from "./../images/youtube-logo.png";
-import js from "./../images/js.png";
-import python from "./../images/python.png";
 import code from "./../images/code.png";
+import ConfettiExplosion from "react-confetti-explosion";
+
+const CONFETTI_DURATION = 2200;
 
 const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
+  const [explodingKey, setExplodingKey] = React.useState(false);
+  const handleConfetti = (key) => {
+    if (explodingKey) return;
+    setExplodingKey(key);
+    setTimeout(() => setExplodingKey(""), CONFETTI_DURATION);
+  };
   const columns = [
     {
       title: "Solved",
@@ -17,14 +24,24 @@ const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
       align: "center",
       render: (value, row) => (
         <div className="d-flex align-items-center justify-content-center">
+          {explodingKey === row.link && (
+            <ConfettiExplosion
+              key={row.link}
+              force={0.6}
+              duration={CONFETTI_DURATION}
+              particleCount={100}
+              width={1000}
+            />
+          )}
           <Checkbox
             checked={solvedList.includes(row.link)}
-            onChange={() =>
+            onChange={() => {
+              if (!solvedList.includes(row.link)) handleConfetti(row.link);
               handleSolved({
                 remove: solvedList.includes(row.link),
                 id: row.link,
-              })
-            }
+              });
+            }}
             disabled={false}
           />
         </div>
@@ -40,7 +57,7 @@ const CollapsibleTable = ({ list, solvedList, handleSolved, openDrawer }) => {
           className="question-link question-link"
           href={row.link}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {row.title}
         </a>
