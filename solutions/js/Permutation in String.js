@@ -6,7 +6,7 @@
 
 /*
  Complexities
- Time - O(s1 + s2) | Space - O(s1 + s2)
+ Time - O(len(s1 + s2)) | Space - O(len(s1 + s2))
 */
 
 var checkInclusion = function (s1, s2) {
