@@ -14,7 +14,7 @@ const Banner = () => {
       className={`d-flex ${
         isMobileView
           ? "flex-column align-items-center py-3 text-center"
-          : "py-5"
+          : "py-5 justify-content-between"
       }`}
     >
       <Title
