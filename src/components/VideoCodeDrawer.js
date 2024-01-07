@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import CodeBlock from "./CodeBlock";
@@ -49,7 +49,13 @@ const TextRender = ({ label, src }) => {
   return (
     <div className="d-flex align-items-center justify-content-center">
       <div style={{ width: "30px" }}>
-        <img src={src} height="25" className="me-2" />
+        <img
+          src={src}
+          height="25"
+          className="me-2"
+          aria-hidden
+          alt="Image of Button"
+        />
       </div>
       {label}
     </div>
@@ -113,7 +119,7 @@ const Header = ({ data = {}, onClose }) => {
           className="ms-2 question-link question-link"
           href={data.link}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {data.title}
         </a>
@@ -123,9 +129,15 @@ const Header = ({ data = {}, onClose }) => {
             className="ms-2 question-link question-link"
             href={`https://www.youtube.com/watch?v=${data.video}`}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
-            <img src={youtube} height="30" width="30" />
+            <img
+              src={youtube}
+              height="30"
+              width="30"
+              aria-hidden
+              alt="Image of Youtube Logo"
+            />
           </a>
         )}
 
@@ -182,7 +194,9 @@ const VideoCodeDrawer = ({
         <Tabs selectedTab={drawerTab} changeTab={handleTabChange} />
         {isOpen && (
           <DrawerContent
-            className={`drawer-content ${isMobileView ? "p-2" : "p-4"}`}
+            className={`drawer-content position-relative ${
+              isMobileView ? "p-2" : "p-4"
+            }`}
           >
             {drawerTab === "video" && <Video data={data} />}
             {drawerTab === "code" && (
